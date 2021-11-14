@@ -214,6 +214,49 @@ header{
 
 /* End Header */
 
+/* Start Camp Section */
+.camps{
+    background-color: rgb(13, 17, 55);
+}
+
+.campheadings{
+    background-color: #fff;
+    border-bottom: 5px solid rgb(10, 52, 145);
+}
+
+.campimgs{
+    transition: all 0.3s ease-in-out;
+}
+
+.campimgs:hover{
+    transform: scale(1.09);
+}
+
+.headings{
+    background-color: rgb(25, 33, 102);
+    font-size: 16px;
+    padding: 15px;
+
+    position: absolute;
+    top: -25px;
+    right: 25px;
+}
+
+.registerbtns{
+    background-color: transparent;
+    color: #fff;
+    border-color: #fff;
+}
+
+.registerbtns:hover{
+    background-color: #fff;
+}
+
+.registerbtns:active{
+    transform: scale(0.95);
+}
+/* End Camp Section */
+
 /*START FAQ*/
 .faqsections{
      background:linear-gradient(60deg,#222b40 50%,#ced0d6);
@@ -487,4 +530,66 @@ hr.bars{
     color:#3b6d48;
 }
 /* END Footer Style */
+
+/* Start Modal Section*/
+/* Start Login Modal */
+.form-control{
+    padding: 7px 35px;
+}
+
+.form-control:focus{
+    outline: none;
+    box-shadow: none;
+    border: 1px solid rgb(13, 17, 55);
+}
+
+.form-control::placeholder{
+    font-size: 14px;
+    color: #a0a0a0;
+}
+
+.form-group .fas{
+    color: rgb(13, 17, 55);
+
+    position: absolute;
+    top: 12px;
+    left: 15px;
+}
+
+form a{
+    color: rgb(13, 17, 55);
+    font-size: 15px;
+}
+
+.loginclosebtns{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.signupclosebtns{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.resetclosebtns{
+    position: absolute;
+    top: 0;
+    right: -40px;
+}
+
+.buttons{
+    background-color: rgb(13, 17, 55);
+    color: #eee;
+
+    transition: all 0.3s;
+}
+
+.buttons:hover{
+    background-color: rgb(7, 24, 87);
+    color: #eee;
+}
+/* End Login Modal */
+/* End Modal Section */
 
