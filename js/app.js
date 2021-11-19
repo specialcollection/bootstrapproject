@@ -22,7 +22,96 @@ window.addEventListener('scroll', () => {
 });
 
 // END HEADER
+// START COURSE
+// BreadCrumb filter
+let navs = document.querySelectorAll(".breadcrumb-item");
+let coursetitles = document.querySelectorAll(".mainbackground");
+let seemorediv = document.querySelector(".seemore");
+// console.log(navs, coursetitles);
+navs.forEach((nav, index) => {
+    nav.addEventListener('click', () => {
+        // console.log(nav.getAttribute('data-categories'));
+        let itemtype = nav.getAttribute('data-categories');
+        coursetitles.forEach(coursetitle => {
+            // console.log(coursetitle.getAttribute("data-categories"));
+            let coursetype = coursetitle.getAttribute("data-categories");
+            console.log(itemtype, coursetype);
+            if (itemtype !== coursetype && itemtype !== 'all') {
+                coursetitle.style.display = "none";
+                seemorediv.style.display = "none";
+            } else if (itemtype == 'all') {
+                seemorediv.style.display = "block";
+            } else {
+                coursetitle.style.display = "flex";
+                seemorediv.style.display = "none";
+                // coursetitle.style.height = "100px";
+            }
+        });
+    });
+});
+// SearchBox Filter
+let searchinput = document.querySelector(".searchcourseinput");
+searchinput.addEventListener("keyup", () => {
+    coursetitles.forEach(coursetitle => {
+        let coursetype = coursetitle.getAttribute("data-categories");
+        if (searchinput.value === coursetype) {
+            coursetitle.classList.remove('hide');
+            coursetitle.classList.add('show');
+        } else {
+            coursetitle.classList.add('hide');
+            coursetitle.classList.remove('show');
+        }
+        console.log(searchinput.value, coursetitle);
+    });
+    // console.log(searchinput.value, coursescards.getAttribute("data-catageories"));
 
+});
+
+
+// Page Navi button
+let maxItem = 4;
+let pageno = 1;
+const pagination = Math.ceil(coursetitles.length / maxItem);
+// button
+let prev = document.querySelector(".prev");
+let next = document.querySelector(".next");
+//  button text 
+let btntext = document.querySelector(".pnobtn");
+
+prev.addEventListener("click", () => {
+    pageno--;
+    btndisable();
+    showItems();
+});
+next.addEventListener("click", () => {
+    pageno++;
+    btndisable();
+    showItems()
+});
+function btndisable() {
+    if (pageno == pagination) {
+        next.parentElement.classList.add("disabled");
+    } else {
+        next.parentElement.classList.remove("disabled");
+    }
+    if (pageno == 1) {
+        prev.parentElement.classList.add("disabled");
+    } else {
+        prev.parentElement.classList.remove("disabled");
+    }
+}
+function showItems() {
+    for (let i = 0; i < coursetitles.length; i++) {
+        coursetitles[i].style.display = "none";
+        if (i >= (pageno * maxItem) - maxItem && i < pageno * maxItem) {
+            coursetitles[i].style.display = "flex";
+        }
+        btntext.innerHTML = pageno;
+    }
+}
+showItems();
+btndisable();
+// END COURSE
 // START FAQ
 
 const btnpluses = document.querySelectorAll(".btnplus")
