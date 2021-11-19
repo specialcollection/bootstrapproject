@@ -50,22 +50,22 @@ navs.forEach((nav, index) => {
     });
 });
 // SearchBox Filter
-let searchinput = document.querySelector(".searchcourseinput");
-searchinput.addEventListener("keyup", () => {
-    coursetitles.forEach(coursetitle => {
-        let coursetype = coursetitle.getAttribute("data-categories");
-        if (searchinput.value === coursetype) {
-            coursetitle.classList.remove('hide');
-            coursetitle.classList.add('show');
-        } else {
-            coursetitle.classList.add('hide');
-            coursetitle.classList.remove('show');
-        }
-        console.log(searchinput.value, coursetitle);
-    });
-    // console.log(searchinput.value, coursescards.getAttribute("data-catageories"));
+// let searchinput = document.querySelector(".searchcourseinput");
+// searchinput.addEventListener("keyup", () => {
+//     coursetitles.forEach(coursetitle => {
+//         let coursetype = coursetitle.getAttribute("data-categories");
+//         if (searchinput.value === coursetype) {
+//             coursetitle.classList.remove('hide');
+//             coursetitle.classList.add('show');
+//         } else {
+//             coursetitle.classList.add('hide');
+//             coursetitle.classList.remove('show');
+//         }
+//         console.log(searchinput.value, coursetitle);
+//     });
+//     // console.log(searchinput.value, coursescards.getAttribute("data-catageories"));
 
-});
+// });
 
 
 // Page Navi button
