@@ -164,6 +164,20 @@ btnpluses.forEach(btnplus => {
 // START Student Counts
 // END Student Counts
 
+// Start About Us Section
+const circles = document.querySelectorAll('.circles');
+circles.forEach((circle)=>{
+    // console.log(circle);
+    circle.addEventListener('mouseenter',()=>{
+        // console.log('hay');
+        circle.parentNode.parentNode.classList.add('textshows');
+    });
+
+    circle.addEventListener('mouseleave',()=>circle.parentNode.parentNode.classList.remove('textshows'));
+});
+// End About Us Section
+
+
 // START footer js
 var year = document.getElementById('year');
 year.textContent = new Date().getFullYear();
