@@ -22,7 +22,22 @@ window.addEventListener('scroll', () => {
 });
 
 // END HEADER
+
 // START COURSE
+// Carddesign bookmark
+let bookmarkcolors = document.querySelectorAll(".bookmark");
+bookmarkcolors.forEach((bookmarkcolor) => {
+    let text = bookmarkcolor.innerText.toLowerCase();
+    if (text === 'free') {
+        bookmarkcolor.style.borderColor = "red";
+        bookmarkcolor.style.borderBottomColor = "transparent";
+        bookmarkcolor.style.color = "white";
+    }
+    // console.log(text);
+});
+// console.log(bookmarkcolors);
+
+
 // BreadCrumb filter
 let navs = document.querySelectorAll(".breadcrumb-item");
 let coursetitles = document.querySelectorAll(".mainbackground");
@@ -35,12 +50,14 @@ navs.forEach((nav, index) => {
         coursetitles.forEach(coursetitle => {
             // console.log(coursetitle.getAttribute("data-categories"));
             let coursetype = coursetitle.getAttribute("data-categories");
-            console.log(itemtype, coursetype);
+            // console.log(itemtype, coursetype);
             if (itemtype !== coursetype && itemtype !== 'all') {
                 coursetitle.style.display = "none";
                 seemorediv.style.display = "none";
             } else if (itemtype == 'all') {
+                coursetitle.style.display = "flex";
                 seemorediv.style.display = "block";
+                // console.log(itemtype);
             } else {
                 coursetitle.style.display = "flex";
                 seemorediv.style.display = "none";
@@ -70,13 +87,31 @@ navs.forEach((nav, index) => {
 
 // Page Navi button
 let maxItem = 4;
+let pagination;
 let pageno = 1;
-const pagination = Math.ceil(coursetitles.length / maxItem);
 // button
 let prev = document.querySelector(".prev");
 let next = document.querySelector(".next");
 //  button text 
 let btntext = document.querySelector(".pnobtn");
+
+window.addEventListener('resize', () => {
+    let wsize = window.innerWidth;
+    if (wsize <= 660) {
+        maxItem = 1;
+        showItems();
+    } else if (wsize <= 975) {
+        maxItem = 2;
+        showItems();
+    } else if (wsize <= 1300) {
+        maxItem = 3;
+        showItems();
+    } else {
+        maxItem = 4;
+        showItems();
+    }
+});
+
 
 prev.addEventListener("click", () => {
     pageno--;
@@ -101,6 +136,7 @@ function btndisable() {
     }
 }
 function showItems() {
+    pagination = Math.ceil(coursetitles.length / maxItem);
     for (let i = 0; i < coursetitles.length; i++) {
         coursetitles[i].style.display = "none";
         if (i >= (pageno * maxItem) - maxItem && i < pageno * maxItem) {
