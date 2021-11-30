@@ -6,7 +6,7 @@
     --c_three: rgb(250, 0, 0);
     --c_four: rgb(13, 17, 55);
     --c_five: rgb(206, 208, 214);
-    --bgc_one: linear-gradient(190deg, var(--c_five) 85%, var(--c_four) 30%);
+    --bgc_one: linear-gradient(190deg, rgb(74,95,106) 85%, var(--c_four) 30%);
     --c_dark: rgb(14, 13, 13);
     --c_white: white;
 }
