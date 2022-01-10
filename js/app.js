@@ -162,18 +162,35 @@ btnpluses.forEach(btnplus => {
 // END FAQ
 
 // START Student Counts
+const counts = document.querySelectorAll(".count_numbers");
+// console.log(stucount[0].getAttribute('data-target'));
+counts.forEach((count) => {
+    count.innerText = '0';
+
+    const updatecounter = () => {
+        const target = +count.getAttribute('data-target');
+        const increament = target / 100;
+        const goalnum = +count.innerText;
+        if (goalnum < target) {
+            count.innerText = Math.ceil(goalnum + increament);
+            setTimeout(updatecounter, 15);
+        }
+    };
+
+    updatecounter();
+});
 // END Student Counts
 
 // Start About Us Section
 const circles = document.querySelectorAll('.circles');
-circles.forEach((circle)=>{
+circles.forEach((circle) => {
     // console.log(circle);
-    circle.addEventListener('mouseenter',()=>{
+    circle.addEventListener('mouseenter', () => {
         // console.log('hay');
         circle.parentNode.parentNode.classList.add('textshows');
     });
 
-    circle.addEventListener('mouseleave',()=>circle.parentNode.parentNode.classList.remove('textshows'));
+    circle.addEventListener('mouseleave', () => circle.parentNode.parentNode.classList.remove('textshows'));
 });
 // End About Us Section
 
